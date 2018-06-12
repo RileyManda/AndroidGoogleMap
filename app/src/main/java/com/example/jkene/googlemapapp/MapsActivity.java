@@ -109,7 +109,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onConnected(@Nullable Bundle bundle) {
         //mLocationRequest is used to get quality of service for location updates from the
         // FusedLocationProviderApi using requestLocationUpdates.
-        mLocationRequest = new LocationRequest();
+        //**mLocationRequest = new LocationRequest();**//this is deprecated and is accessed internally
+         LocationRequest locationRequest = LocationRequest.create();//new location request invocation:
         mLocationRequest.setInterval(1000);
         mLocationRequest.setFastestInterval(1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
